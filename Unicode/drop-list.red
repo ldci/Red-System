@@ -18,13 +18,13 @@ view win: layout [
 	space 5x5	
 	t: drop-list 150 white black font-size 11 data []
 	on-create [
-		append face/data rejoin [form to-char 2764h form to-char FE0Fh " Red"]
-		append face/data rejoin [form to-char 1F49Ah " Green"]
-		append face/data rejoin [form to-char 1F499h " Blue"]
-		append face/data rejoin [form to-char 1F49Ch " Magenta"]
-		append face/data rejoin [form to-char 1F9E1h " Orange" ]
-		append face/data rejoin [form to-char 1F49Bh " Yellow"]
-		append face/data rejoin [form to-char 1F5A4h " Black"]
+		append face/data rejoin [to-char 2764h to-char FE0Fh " Red"]
+		append face/data rejoin [to-char 1F49Ah " Green"]
+		append face/data rejoin [to-char 1F499h " Blue"]
+		append face/data rejoin [to-char 1F49Ch " Magenta"]
+		append face/data rejoin [to-char 1F9E1h " Orange" ]
+		append face/data rejoin [to-char 1F49Bh " Yellow"]
+		append face/data rejoin [to-char 1F5A4h " Black"]
 		face/extra: [red green blue magenta orange yellow black]
 	]
 	on-change [ 
