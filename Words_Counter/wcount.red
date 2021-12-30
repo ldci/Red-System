@@ -48,14 +48,13 @@ countWords: does [
 	]
 	wordBlock: split copycat space	;--get words
 	sort wordBlock				   	;--sort words
-	n: (length? wordBlock) - 1
+	n: length? wordBlock
 	count: 1
 	wordCount: copy []
 	repeat i n [
 		key1: wordBlock/:i key2: wordBlock/(i + 1)
 		either key1 = key2 [count: count + 1][append wordCount rejoin [key1 ": " count] count: 1]
 	]
-	append wordCount rejoin [key1 ": " count] ; last word in  block
 	wordsList/text: ""
 	foreach v wordCount [append wordsList/text rejoin [v newline]]
 	t2: now/time/precise
