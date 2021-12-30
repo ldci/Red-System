@@ -3,35 +3,20 @@ Red [
 	Title: "unicode4"
 	Author: "LDCI"
 	Version: 1.0
-	Notes: {This code allows to use unicode characters in Red text-list object}
+	Notes: {This code allows to use unicode characters in Red dro-down object}
 	Needs: view
 ] 
 
-;--initialize  base text objects
-init: [
-	s: to-char 2587h
-	r/text: copy rejoin [form s " Red"]
-	g/text: copy rejoin [form s " Green"]
-	b/text: copy rejoin [form s " Blue"]
-]
-
 ;--update the color viewer according to selected object
 update: func [face [object!]] [
-	f/font/color: 0.0.0 + f/color
 	f/color: face/font/color  
-	f/text: form face/font/color
+	cf/text: form face/font/color
 ]
 
 view win: layout [
-	title "Color Selection: text-list"
+	title "Color Selection: drop-list"
 	space 5x5	
-	r: base snow 80x24 left middle font-color red   [update r]
-	g: base snow 80x24 left middle font-color green [update g]
-	b: base snow 80x24 left middle font-color blue	[update b] 	 
-	pad 55x0 button  50 "Quit"[quit]
-	return
-	
-	t: text-list 100x120 white black font-size 11 data []
+	t: drop-list 150 white black font-size 11 data []
 	on-create [
 		append face/data rejoin [form to-char 2764h form to-char FE0Fh " Red"]
 		append face/data rejoin [form to-char 1F49Ah " Green"]
@@ -48,9 +33,9 @@ view win: layout [
 		face/font/color: black	;--restore default font color 
 	]
 	select 1
-	f: base 260x120 white black font-size 16 
-	do [reduce init  f/color: red f/text: "255.0.0"]
+	cf: field 90 center
+	pad 5x0 button  50 "Quit"[quit]
+	return
+	f: base 310x120 white black font-size 16 
+	do[f/color:red cf/text: "255.0.0"]
 ]
-
-
-
