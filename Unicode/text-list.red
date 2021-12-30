@@ -15,13 +15,13 @@ init: [
 	b/text: copy rejoin [form s " Blue"]
 ]
 
-;--update the f base object
+;--update the color viewer according to selected object
 update: func [face [object!]] [
 	f/font/color: 0.0.0 + f/color
-	f/color: face/font/color  f/text: form face/font/color
+	f/color: face/font/color  
+	f/text: form face/font/color
 ]
 
- 
 view win: layout [
 	title "Color Selection"
 	space 5x5	
@@ -44,10 +44,9 @@ view win: layout [
 	]
 	on-change [ 
 		face/font/color: do face/extra/(face/selected)
-		update t
-		face/font/color: black
+		update face				;--update color viewer
+		face/font/color: black	;--restore default font color 
 	]
-	
 	f: base 260x120 white black font-size 16 
 	do [reduce init]
 ]
