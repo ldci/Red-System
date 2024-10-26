@@ -31,7 +31,7 @@ win: layout [title "System Fonts"
 		select 1
 
 	button "Quit" [Quit] return
-	ar: area white 400x400 txt
+	ar: area white 400x400 txt wrap
 	font [name: "Arial" size: 12 color: black] return
 	sb: base 400x20 white "Arial"
 	do [sl/data: 0.12 f/text: "12"]

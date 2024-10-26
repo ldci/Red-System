@@ -74,7 +74,7 @@ mainWin: layout [
 	pad 140x0
 	button "Quit" 	[Quit]
 	return
-	ar: area white 400x400 
+	ar: area white 400x400 wrap
 	font [name: "Arial" size: 14 color: black] 
 	wordsList: area black 200x400 
 	font [name: "Arial" size: 14 color: green] 
